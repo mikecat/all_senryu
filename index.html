@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>全川柳データベース</title>
+<script src="all_senryu.js"></script>
+<link href="all_senryu.css" rel="stylesheet" />
+<link rel="icon" href="sen.ico" />
+</head>
+<body>
+<h1>全川柳データベース</h1>
+<p class="explanation">
+検索したい川柳をひらがなで入力してください。(完全一致検索、ひらがな以外 (空白、句読点など) は無視します)<br>
+または、検索したい川柳の番号 (1 ～ <span id="senryuCountArea">?</span> の整数) を半角数字で入力してください。
+</p>
+<form id="searchForm" method="POST" action="https://999.999.999.999/" onsubmit="return false;">
+<p>
+<input type="text" name="query" id="queryArea" value="" size="80">
+<span id="searchButtons">
+<input type="submit" value="検索">
+<button type="button" name="random" id="randomButton">ランダム表示</button>
+</span>
+</p>
+</form>
+
+<div id="senryuDisplayArea">
+<div id="validSenryuArea">
+<div id="senryuTable">
+<div><div id="senryuIdCell">
+No. <span id="senryuIdArea">?</span>
+</div></div>
+<div><div id="senryuCell">
+<span id="senryuArea">あああああ　あああああああ　あああああ</span>
+</div></div>
+<div><div id="postCell">
+<a href="#" target="_blank" id="postLink">ポスト (ツイート) する</a>
+</div></div>
+</div>
+<p id="senryuNavigationArea">
+<button type="button" id="prevButton" data-senryu-id="">← 前の川柳</button>
+<button type="button" id="nextButton" data-senryu-id="">次の川柳 →</button>
+</p>
+</div>
+<p id="notFoundMessage">
+該当のデータが見つかりません。
+</p>
+</div>
+
+<hr>
+<h2>全川柳データベースとは</h2>
+<div class="explanation">
+<p>
+全ての川柳を網羅したデータベースです。<br>
+<span id="senryuCountArea2">?</span> 句の川柳が収録されています。<br>
+<a href="https://horicun.moo.jp/contents/haiku/">全俳句データベース</a> (<a href="https://horicun.moo.jp/contents/haiku2/">Ver.2</a>) をリスペクトして作りました。
+</p>
+<p>
+ここでは、以下の条件を全て満たす文字列を「川柳」と定義します。
+</p>
+<ul>
+<li>17個の「モーラ」(≒文字) を連結した文字列である。</li>
+<li>「ー」は2個以上連続しない。</li>
+<li>「っ」は2個以上連続しない。</li>
+<li>前から1番目・6番目・13番目の「モーラ」は「ー」でも「っ」でもない。</li>
+<li>「っ」の直後に「ー」は来ない。</li>
+</ul>
+<div id="moraListArea"></div>
+<p>
+見やすさのため、前から5番目および12番目の「モーラ」の後に空白を入れて川柳を表示します。
+</p>
+</div>
+
+<h2>ショートカットキー</h2>
+<div class="explanation">
+<dl>
+<dt>←</dt><dd>前の川柳を表示</dd>
+<dt>→</dt><dd>次の川柳を表示</dd>
+<dt>R</dt><dd>ランダム表示</dd>
+</dl>
+</div>
+
+<hr>
+<p>
+<a href="https://github.com/mikecat/all_senryu">GitHub リポジトリ</a>
+</p>
+</body>
+</html>
